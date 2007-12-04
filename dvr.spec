@@ -1,6 +1,6 @@
 %define name	dvr
 %define version	3.0
-%define release 1mdk
+%define release  %mkrel 1
 
 Name: 	 	%{name}
 Summary: 	Digital video recorder
