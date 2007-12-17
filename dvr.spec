@@ -14,7 +14,7 @@ Source3: 	%{name}16.png
 URL:		http://dvr.sourceforge.net
 License:	GPL
 Group:		Video
-BuildRequires:	libavifile-devel libqt3-devel flex
+BuildRequires:	libavifile-devel qt3-devel flex
 
 %description
 DVR stands for Digital Video Recorder.  In a few words DVR is a simple and
