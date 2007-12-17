@@ -14,7 +14,6 @@ Source3: 	%{name}16.png
 URL:		http://dvr.sourceforge.net
 License:	GPL
 Group:		Video
-BuildRoot:	%{_tmppath}/%{name}-buildroot
 BuildRequires:	libavifile-devel libqt3-devel flex
 
 %description
