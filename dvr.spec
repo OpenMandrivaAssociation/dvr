@@ -39,9 +39,15 @@ export version=%version
 %makeinstall
 
 #menu
-mkdir -p $RPM_BUILD_ROOT%{_menudir}
-cat << EOF > $RPM_BUILD_ROOT%{_menudir}/%{name}
-?package(%{name}): command="%{name}-qtgui" icon="%{name}.png" needs="x11" title="DVR" longtitle="Digital Video Recorder" section="Multimedia/Video"
+mkdir -p $RPM_BUILD_ROOT%{_datadir}/applications/
+cat << EOF > %buildroot%{_datadir}/applications/mandriva-%{name}.desktop
+[Desktop Entry]
+Type=Application
+Exec=%{name}-qtgui
+Icon=%{name}
+Name=DVR
+Comment=Digital Video Recorder
+Categories=AudioVideo;
 EOF
 
 #icons
@@ -66,7 +72,7 @@ rm -rf $RPM_BUILD_ROOT
 %doc doc/*
 %{_bindir}/*
 %{_datadir}/dvr-%{version}
-%{_menudir}/%name
+%{_datadir}/applications/mandriva-%name.desktop
 %{_liconsdir}/%name.png
 %{_iconsdir}/%name.png
 %{_miconsdir}/%name.png
