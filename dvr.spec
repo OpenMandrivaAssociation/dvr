@@ -37,6 +37,7 @@ sed -i -e 's,/usr/local,%{buildroot}%{_prefix},g' Makefile
 sed -i -e 's,/usr/lib/qt,%{qt3lib},g' Makefile
 sed -i -e 's,/usr/include/qt,%{qt3include},g' Makefile
 sed -i -e 's.-g.%{optflags}.g' Makefile
+export PATH=$PATH:%{qt3dir}/bin
 %make
 popd
 										
