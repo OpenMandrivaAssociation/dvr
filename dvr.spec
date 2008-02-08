@@ -44,6 +44,7 @@ popd
 %install
 rm -rf %{buildroot}
 pushd src
+export PATH=$PATH:%{qt3dir}/bin
 %makeinstall
 popd
 
