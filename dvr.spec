@@ -13,6 +13,7 @@ Patch0:		dvr-3.99.3-build.patch
 URL:		http://www.pierrox.net/dvr/
 License:	GPLv2+
 Group:		Video
+BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildRequires:	libgstreamer0.10-devel
 BuildRequires:	qt3-devel
 
