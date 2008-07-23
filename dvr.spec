@@ -1,7 +1,7 @@
 Name: 	 	dvr
 Summary: 	Digital video recorder
 Version: 	3.99.3
-Release: 	%mkrel 1
+Release: 	%mkrel 3
 
 Source:		http://www.pierrox.net/dvr/releases/%{name}-%{version}.tar.bz2
 Source1: 	%{name}48.png
