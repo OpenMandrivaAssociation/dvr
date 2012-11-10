@@ -1,0 +1,50 @@
+--- dvr-3.99.3/src/tab_codec_config.cpp	2007-06-02 09:50:41.000000000 -0700
++++ dvr-3.99.3/src/tab_codec_config.cpp.new	2008-02-07 21:34:09.000000000 -0800
+@@ -218,16 +218,17 @@
+   QString ret;
+   GParamSpec *param=g_object_class_find_property(G_OBJECT_GET_CLASS(element), property_name);
+ 
+-  GValue value={ 0, 0 };
++  GValue value={ 0, { { 0 } } };
+   g_value_init(&value, param->value_type);
+   g_object_get_property(G_OBJECT(element), param->name, &value);
+   
+   switch(G_VALUE_TYPE(&value)) {
+-    case G_TYPE_STRING :
++    case G_TYPE_STRING : {
+       const char *s=g_value_get_string(&value);
+       if(s==NULL) s="<null>";
+       ret=s;
+       break;
++    }
+       
+     case G_TYPE_BOOLEAN :
+       if(g_value_get_boolean(&value)) {
+--- dvr-3.99.3/src/property_editor.cpp	2007-06-02 09:50:41.000000000 -0700
++++ dvr-3.99.3/src/property_editor.cpp.new	2008-02-07 21:38:14.000000000 -0800
+@@ -45,7 +45,7 @@
+ {
+   GParamSpec *param;
+   QString hint, value;
+-  GValue prop_value={ 0, 0 };
++  GValue prop_value={ 0, { { 0 } } };
+ 
+   param=g_object_class_find_property(G_OBJECT_GET_CLASS(element), property_name);
+   g_value_init(&prop_value, param->value_type);
+@@ -54,7 +54,7 @@
+   qlb_property_name->setText(g_param_spec_get_blurb(param));
+   
+   switch(G_VALUE_TYPE(&prop_value)) {
+-    case G_TYPE_STRING :
++    case G_TYPE_STRING : {
+       GParamSpecString *p=G_PARAM_SPEC_STRING(param);
+       const char *s=g_value_get_string(&prop_value);
+       if(s==NULL) s="";
+@@ -63,6 +63,7 @@
+       qlb_string_hint->setText(hint);
+       ws_value->raiseWidget(0);
+       break;
++    }
+       
+     case G_TYPE_BOOLEAN : {
+       GParamSpecBoolean *p=G_PARAM_SPEC_BOOLEAN(param);
