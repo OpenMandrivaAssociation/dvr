@@ -10,7 +10,7 @@ Source3: 	%{name}16.png
 # From upstream SVN: fixes a code error that breaks build
 # - AdamW 2007/02
 Patch0:		dvr-3.99.3-build.patch
-URL:		http://www.pierrox.net/dvr/
+URL:		https://www.pierrox.net/dvr/
 License:	GPLv2+
 Group:		Video
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
