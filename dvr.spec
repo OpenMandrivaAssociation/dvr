@@ -14,6 +14,7 @@ URL:		https://www.pierrox.net/dvr/
 License:	GPLv2+
 Group:		Video
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
+BuildRequires:	make
 BuildRequires:	libgstreamer-devel >= 0.10
 BuildRequires:	qt3-devel
 
